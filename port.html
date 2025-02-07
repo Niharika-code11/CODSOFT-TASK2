@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    .profile-img {
+      width: 300px;  /* Set width */
+      height: 400px; /* Set height */
+      border-radius: 100%; /* Makes the image circular */
+      object-fit: cover; /* Ensures proper scaling */
+      transition: transform 0.3s ease;
+      display: block; /* Ensures proper alignment */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow */
+  }
+  .profile-img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    cursor: pointer;
+}
+  
+
+    header {
+      background: #000;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #ff0050;
+    }
+
+    header nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    header nav a:hover {
+      background: #ff0050;
+      transform: scale(1.1);
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 40px;
+      background: #1b1b1b;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero .content {
+      max-width: 50%;
+    }
+
+    .hero h2 {
+      font-size: 40px;
+      color: #ff0050;
+    }
+
+    .hero p {
+      margin: 20px 0;
+      font-size: 18px;
+    }
+
+    .hero button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background: #ff0050;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .hero button:hover {
+      opacity: 0.8;
+    }
+
+    .about,
+    .skills,
+    .contact {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .about h3,
+    .skills h3,
+    .contact h3 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #ff0050;
+    }
+
+    .about p,
+    .skills p,
+    .contact p {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      font-size: 18px;
+    }
+
+    .skills ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .skills li {
+      background: #222;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: transform 0.3s;
+    }
+
+    .skills li:hover {
+      transform: scale(1.1);
+    }
+
+    .contact a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    .contact a:hover {
+      color: #ff0050;
+    }
+
+    footer {
+      background: #0f0a0a;
+      padding: 20px 40px;
+      text-align: center;
+      font-size: 16px;
+      color: #bbb;
+    }
+    /* Contact Section Styling */
+.contact {
+  padding: 60px 40px;
+  text-align: center;
+  background-color: #1b1b1b;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(21, 9, 9, 0.2);
+}
+
+.contact h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #ff0050;
+}
+
+.contact p {
+  font-size: 18px;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+/* Contact Info Styling */
+.contact-info p {
+  font-size: 18px;
+  color: #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contact-info a {
+  color: #ff0050;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Social Links */
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0 15px;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #ff0050;
+}
+ /* Projects Section */
+ .projects {
+  padding: 60px 40px;
+  background: #1b1b1b;
+  text-align: center;
+}
+
+.projects h3 {
+  font-size: 30px;
+  color: #ff0050;
+  margin-bottom: 30px;
+}
+
+.projects .project-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.projects .project-card {
+  background: #222;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.projects .project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.projects .project-card h4 {
+  font-size: 22px;
+  color: #ff0050;
+  margin-bottom: 15px;
+}
+
+.projects .project-card p {
+  font-size: 16px;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+.projects .project-card a {
+  color: #fff;
+  text-decoration: none;
+  background: #ff0050;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.projects .project-card a:hover {
+  background: #ff2d6d;
+}
+/* Font Awesome Icons */
+.contact-info i {
+  color: #ff0050;
+  font-size: 20px;
+}
+
+    footer a {
+      color: #ff0050;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Portfol<span style="color: #ff0050;">io</span></h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="content">
+      <h2>Hello, I'm <span style="color: #ff0050;">Sumbu Niharika</span></h2>
+      <p>Passionate Web Developer with expertise in HTML,CSS,JavaScript and more.</p>
+      <button>Let's Talk</button>
+    </div>
+    <img src="c:\Users\Lakshmi\OneDrive\Desktop\niha.jpg" alt="Profile Image" style="border-radius: 10px;" class="profile-img">
+  </section>
+
+  <section class="about" id="about">
+    <h3>About Me</h3>
+    <p>Hi! I am Computer Science Engineering student specializing in software development,web technologies,and problem-solving.
+      "Hello! I am a motivated and detail-oriented Computer Science Engineering graduate with a strong passion for software development and problem-solving. As a fresher, I am eager to apply my technical skills, adaptability, and enthusiasm for learning in a dynamic work environment.
+
+I have hands-on experience in Java, Python, JavaScript, and SQL, along with a solid understanding of data structures, algorithms, and database management. I have worked on projects involving web development, cloud computing, and machine learning during my academic journey, enhancing my ability to design scalable and efficient solutions.
+
+I am highly motivated to contribute to innovative projects, collaborate with teams, and continuously enhance my skills in a professional setting. I am seeking an opportunity where I can leverage my technical expertise while growing as a professional in the field of software development."
+    </p>
+  </section>
+
+  <section class="skills" id="skills">
+    <h3>My Skills</h3>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node.js</li>
+    </ul>
+  </section>
+  <section class="projects" id="projects">
+    <h3>My Projects</h3>
+    <div class="project-container">
+      <div class="project-card">
+        <h4>Project 1</h4>
+        <p>Personal Portfolio Website</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+      <div class="project-card">
+        <h4>Project 2</h4>
+        <p>Online Quiz Application</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+      <div class="project-card">
+        <h4>Project 3</h4>
+        <p>Task Management App</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <h3>Contact Me</h3>
+    <p>Feel free to reach out to me through the following details:</p>
+
+    <div class="contact-container">
+        <!-- Contact Details Block -->
+        <div class="contact-info">
+            <h4>Get in Touch</h4>
+            <p>                    </p>
+            <p><i class="fas fa-map-marker-alt"></i> VR Colony,Kurnool</p>
+            <p><i class="fas fa-envelope"></i> Email: 
+                <a href="mailto:yourname@example.com">sumbuniharika@gmail.com</a>
+            </p>
+            <p><i class="fas fa-phone"></i> Phone: 
+                <a href="tel:+1234567890">+91 7981773627</a>
+            </p>
+        </div>
+
+        <!-- Social Links Block -->
+        <div class="social-links">
+            <h4>Connect with Me</h4>
+            <p>                      </p>
+            <a href="https://github.com/Niharika-code11" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/niharika-sumbu-a95752280/
+" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="file:///C:/Users/Lakshmi/Downloads/Updated_Resume.pdf" target="_blank"><i class="fas fa-file-alt"></i> Resume</a>
+        </div>
+    </div>
+</section>
+
+ 
+</body>
+</html>
